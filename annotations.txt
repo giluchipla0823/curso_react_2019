@@ -1,0 +1,2 @@
+# Repositorio del curso
+https://github.com/Sparragus/platzi-badges/tree/6.NuestraPrimeraPagina/src/images
