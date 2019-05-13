@@ -3,10 +3,10 @@ import React from 'react';
 class BadgeForm extends React.Component{
 
     // state = {
-    //     firstname: ''
-    //     , lastname: ''
+    //     firstName: ''
+    //     , lastName: ''
     //     , email: ''
-    //     , jobtitle: ''
+    //     , jobTitle: ''
     //     , twitter: ''
     // };
 
@@ -22,24 +22,17 @@ class BadgeForm extends React.Component{
         console.log('event click');
     }
 
-    handleSubmit = (event) => {
-        event.preventDefault();
-        console.log('form submitted');
-    }
-
     render(){
         return(
-            <div>
-                <h1>New Attendant</h1>
-
-                <form action="" onSubmit={ this.handleSubmit }>
+            <div>                
+                <form action="" onSubmit={ this.props.onSubmit }>
                     <div className="form-group">
                         <label htmlFor="">First Name</label>
                         <input onChange={ this.props.onChange } 
                                className="form-control" 
                                type="text" 
-                               name="firstname"
-                               value={ this.props.formValues.firstname } />
+                               name="firstName"
+                               value={ this.props.formValues.firstName } />
                     </div>
 
                     <div className="form-group">
@@ -47,8 +40,8 @@ class BadgeForm extends React.Component{
                         <input onChange={ this.props.onChange } 
                                className="form-control" 
                                type="text" 
-                               name="lastname"
-                               value={ this.props.formValues.lastname } />
+                               name="lastName"
+                               value={ this.props.formValues.lastName } />
                     </div>
 
                     <div className="form-group">
@@ -65,8 +58,8 @@ class BadgeForm extends React.Component{
                         <input onChange={ this.props.onChange } 
                                className="form-control" 
                                type="text" 
-                               name="jobtitle"
-                               value={ this.props.formValues.jobtitle } />
+                               name="jobTitle"
+                               value={ this.props.formValues.jobTitle } />
                     </div>
 
                     <div className="form-group">
@@ -78,10 +71,14 @@ class BadgeForm extends React.Component{
                                value={ this.props.formValues.twitter } />
                     </div>
 
-                    <button type="button" onClick={ this.handleClick } className="btn btn-primary">
+                    <button type="submit" className="btn btn-primary">
                         Save
                     </button>
                 </form>
+
+                { this.props.error && (
+                    <p className="text-danger">{ this.props.error.message }</p>
+                ) }
             </div>
         )
     };
